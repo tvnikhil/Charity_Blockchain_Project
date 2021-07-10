@@ -3,11 +3,11 @@
 pragma solidity >=0.8.6;
 
 contract TokenFarm {
-    uint a = 10;
-    uint b = 20;
-    uint s;
+    uint256 a = 10;
+    uint256 b = 20;
+    uint256 s;
 
-    function getRes() public returns (uint) {
+    function getRes() public returns (uint256) {
         s = a + b;
         return s;
     }
