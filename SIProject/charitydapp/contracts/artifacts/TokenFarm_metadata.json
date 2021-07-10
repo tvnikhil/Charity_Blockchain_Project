@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.6+commit.11564f7e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getRes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"SIProject/charitydapp/contracts/TokenFarm.sol": "TokenFarm"
+		},
+		"evmVersion": "berlin",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"SIProject/charitydapp/contracts/TokenFarm.sol": {
+			"keccak256": "0x8030975aa762301a1b577a3a5939826e43d2ced636708654d659f3511bba7ffb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4e8401ce865a5f1a88b86855fc2556a3413dd1d033b500d5884d29031a7f8ec7",
+				"dweb:/ipfs/QmR1BypuD8tPsgcRkKDztVQmQ9v4kU5qqF46BxYuGJFEEm"
+			]
+		}
+	},
+	"version": 1
+}
