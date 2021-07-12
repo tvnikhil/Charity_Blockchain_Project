@@ -2,7 +2,7 @@
 
 pragma solidity ^0.5.16;
 
-contract TokenFarm {
+contract TestContract {
     uint256 a = 10;
     uint256 b = 20;
     uint256 s;
