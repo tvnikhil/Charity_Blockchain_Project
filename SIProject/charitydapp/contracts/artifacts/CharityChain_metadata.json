@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.5.17+commit.d19bba13"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"SIProject/charitydapp/contracts/CharityChain.sol": "CharityChain"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"SIProject/charitydapp/contracts/CharityChain.sol": {
+			"keccak256": "0x9a65b9543ac418cda76e5b2b20897cd331c44e72ceb0a5714f39d66e820eddd9",
+			"urls": [
+				"bzz-raw://a5b4317284c1e378639cd4a26989648d8844765b5aafb0be7166ced028d5c8b1",
+				"dweb:/ipfs/QmbDdTsiApPADwuSazDbpopHUGnzA3hGrNqZub1UXqGU3S"
+			]
+		}
+	},
+	"version": 1
+}
