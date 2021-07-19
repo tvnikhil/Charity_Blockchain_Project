@@ -12,6 +12,115 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "coins_wanted",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address payable",
+						"name": "addr_org",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "reqSatisfied",
+						"type": "bool"
+					}
+				],
+				"name": "OrganisationCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "coins_wanted",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address payable",
+						"name": "addr_org",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "reqSatisfied",
+						"type": "bool"
+					}
+				],
+				"name": "OrganisationDonated",
+				"type": "event"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_coins_wanted",
+						"type": "uint256"
+					}
+				],
+				"name": "createOrganisation",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "giveDonation",
+				"outputs": [],
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"constant": true,
 				"inputs": [],
 				"name": "name",
@@ -20,6 +129,62 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "organisations",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "coins_wanted",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "addr_org",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "reqSatisfied",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "orgsCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"payable": false,
@@ -48,10 +213,10 @@
 	},
 	"sources": {
 		"SIProject/charitydapp/contracts/CharityChain.sol": {
-			"keccak256": "0x9a65b9543ac418cda76e5b2b20897cd331c44e72ceb0a5714f39d66e820eddd9",
+			"keccak256": "0xc81087c358c4cb4f2b7b0f70418f1c2d8ffaf7fc42af80c446d5399c9528caf2",
 			"urls": [
-				"bzz-raw://a5b4317284c1e378639cd4a26989648d8844765b5aafb0be7166ced028d5c8b1",
-				"dweb:/ipfs/QmbDdTsiApPADwuSazDbpopHUGnzA3hGrNqZub1UXqGU3S"
+				"bzz-raw://e54980356170de1c8d81fecf314270f20688bfc2327250a447d9f1b79e4c7232",
+				"dweb:/ipfs/QmYJQuTTJWQEEbskxNEHz1soW2KUoJ58hMmHr5XLnGXrac"
 			]
 		}
 	},
