@@ -59,6 +59,10 @@ contract('CharityChain', ([deployer, org, donor]) => {
         })
 
         it('receives coins', async () => {
+            //const organisation = await charitychain.organisations(orgsCount)
+            //console.log(organisation.coins_wanted)
+            //console.log(organisation.reqSatisfied)
+
             let oldOrgBalance = await web3.eth.getBalance(org)
             oldOrgBalance = new web3.utils.BN(oldOrgBalance)
             let oldDonorBalance = await web3.eth.getBalance(donor)
@@ -81,8 +85,8 @@ contract('CharityChain', ([deployer, org, donor]) => {
             let coins = web3.utils.toWei('1', 'Ether')
             coins = new web3.utils.BN(coins)
 
-            console.log(oldOrgBalance, oldDonorBalance, coins)
-            console.log(newOrgBalance, newDonorBalance, coins)
+            //console.log(oldOrgBalance, oldDonorBalance, coins)
+            //console.log(newOrgBalance, newDonorBalance, coins)
 
             const expectedBalance = oldOrgBalance.add(coins)
             assert.equal(newOrgBalance.toString(), expectedBalance.toString())
