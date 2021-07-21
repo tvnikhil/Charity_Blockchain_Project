@@ -30,7 +30,7 @@ contract('CharityChain', ([deployer, org, donor]) => {
         let result, orgsCount
 
         before(async () => {
-            result = await charitychain.createOrganisation('Rainbow-Hospitals', web3.utils.toWei('1', 'Ether'), { from: org })
+            result = await charitychain.createOrganisation('hash','Rainbow-Hospitals', web3.utils.toWei('1', 'Ether'), { from: org })
             orgsCount = await charitychain.orgsCount()
         })
 
@@ -39,19 +39,22 @@ contract('CharityChain', ([deployer, org, donor]) => {
             // console.log(result.logs)
             const event = result.logs[0].args
             assert.equal(event.id.toNumber(), orgsCount.toNumber(), 'id is correct')
+            assert.equal(event.hash,'hash','Hash is correct')
             assert.equal(event.name, 'Rainbow-Hospitals', 'name is correct')
             assert.equal(event.coins_wanted, '1000000000000000000', 'coins_wanted is correct')
             assert.equal(event.addr_org, org, 'Addr is correct')
             assert.equal(event.reqSatisfied, false, 'reqSatisfied is correct')
 
-            await charitychain.createOrganisation('', web3.utils.toWei('1', 'Ether'), { from: org }).should.be.rejected;
-            await charitychain.createOrganisation('Rainbow-Hospitals', 0, { from: org }).should.be.rejected;
+            await charitychain.createOrganisation('','Rainbow-Hospitals',0,{ from: org }).should.be.rejected;
+            await charitychain.createOrganisation('_hash','', web3.utils.toWei('1', 'Ether'), { from: org }).should.be.rejected;
+            await charitychain.createOrganisation('_hash','Rainbow-Hospitals', 0, { from: org }).should.be.rejected;
         })
 
         it('lists organisations', async () => {
             const organisation = await charitychain.organisations(orgsCount)
 
             assert.equal(organisation.id.toNumber(), orgsCount.toNumber(), 'id is correct')
+            assert.equal(organisation.hash,'hash','Hash is correct') 
             assert.equal(organisation.name, 'Rainbow-Hospitals', 'name is correct')
             assert.equal(organisation.coins_wanted, '1000000000000000000', 'coins_wanted is correct')
             assert.equal(organisation.addr_org, org, 'Addr is correct')
@@ -72,6 +75,7 @@ contract('CharityChain', ([deployer, org, donor]) => {
 
             const event = result.logs[0].args
             assert.equal(event.id.toNumber(), orgsCount.toNumber(), 'id is correct')
+            assert.equal(event.hash,'hash','Hash is correct')
             assert.equal(event.name, 'Rainbow-Hospitals', 'name is correct')
             assert.equal(event.coins_wanted, '1000000000000000000', 'coins_wanted is correct')
             assert.equal(event.addr_org, donor, 'Addr is correct')
