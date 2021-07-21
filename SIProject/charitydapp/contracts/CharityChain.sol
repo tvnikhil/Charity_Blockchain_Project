@@ -10,6 +10,7 @@ contract CharityChain {
     
     struct Organisation {
         uint id;
+        string hash;
         string name;
         uint coins_wanted;
         address payable addr_org;
@@ -19,6 +20,7 @@ contract CharityChain {
     event OrganisationCreated (
         uint id,
         string name,
+        string hash,
         uint coins_wanted,
         address payable addr_org,
         bool reqSatisfied
@@ -26,6 +28,7 @@ contract CharityChain {
     
     event OrganisationDonated (
         uint id,
+        string hash,
         string name,
         uint coins_wanted,
         address payable addr_org,
@@ -36,14 +39,15 @@ contract CharityChain {
         name = "Charity Chain";
     }
     
-    function createOrganisation(string memory _name, uint _coins_wanted) public {
+    function createOrganisation(string memory _hash,string memory _name, uint _coins_wanted) public {
+        require(bytes(_hash).length>0);
         require(bytes(_name).length > 0);
         require(_coins_wanted > 0);
         
         orgsCount++;
-        organisations[orgsCount] = Organisation(orgsCount, _name, _coins_wanted, msg.sender, false);
+        organisations[orgsCount] = Organisation(orgsCount,_hash, _name, _coins_wanted, msg.sender, false);
         
-        emit OrganisationCreated(orgsCount, _name, _coins_wanted, msg.sender, false);
+        emit OrganisationCreated(orgsCount, _name,_hash, _coins_wanted, msg.sender, false);
     }
     
     function giveDonation(uint _id) public payable{
@@ -62,6 +66,6 @@ contract CharityChain {
        }
        organisations[_id] = _org;
        
-       emit OrganisationDonated(orgsCount, _org.name, _org.coins_wanted, msg.sender, _org.reqSatisfied);
+       emit OrganisationDonated(orgsCount,_org.hash, _org.name, _org.coins_wanted, msg.sender, _org.reqSatisfied);
     }
 }
