@@ -1,0 +1,14 @@
+<div class="container-fluid py-5 text-center">
+    <h2 class="fw-bold">Create a new cause here</h2>
+    <form style="padding-left: 10vw; padding-right: 10vw;" [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="pt-5">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" formControlName="Name" placeholder="feeding the poor">
+        <label for="floatingInput">your cause</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="floatingInput" formControlName="Amount" placeholder="feeding the poor">
+        <label for="floatingInput">required amount</label>
+      </div>
+      <button class="button btn btn-primary" type="submit">Add</button>
+    </form>
+  </div>
