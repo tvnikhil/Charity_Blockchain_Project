@@ -1,34 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0F1111;">
-    <div class="container-fluid">
-      <a class="navbar-brand text-white" href="https://www.amazon.in/"><i class="fab fa-amazon" style="font-size: 1.2rem;"></i> Smart Charity</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link text-white" aria-current="page" routerLink="Home" routerLinkActive="active">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" routerLink="Register" routerLinkActive="active">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" routerLink="Login" routerLinkActive="active">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#bottom" routerLinkActive="active">Contact Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- nestproduct components -->
-<div class="container mb-5 mt-5">
-    <router-outlet></router-outlet>
+<div class="container-fluid" style="background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" >
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto mx-auto text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-4 text-center">AngularCharityDapp</span>
+    </a>
+  </header>
+  <div class="container-fluid py-5 text-center">
+    <h1 class="display-5 fw-bold">Trustable charity</h1>
+    <p class="fs-4 text-center mx-auto px-5">Using Blockchain,We try to create again a trustable charity which has been lately exploited.In the name of charity many high profile scandals have occured our aim is to create trust again in charities</p>
+  </div>
+  <app-form></app-form>
 </div>
-
-<!-- footer -->
-<app-footer class="mt-auto" style="background-color: #232F3E;" id="bottom"></app-footer>
-  
-  
