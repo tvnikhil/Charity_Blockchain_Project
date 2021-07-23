@@ -24,3 +24,8 @@
 code {
   background: hsl(220, 80%, 90%);
 }
+
+.orglist {
+  padding-left: 25%;
+  padding-right: 25%;
+}
