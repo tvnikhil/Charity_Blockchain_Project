@@ -37,17 +37,17 @@ contract CharityChain {
   function createOrganisation(string memory _name, uint _coins_wanted) public {
     // Required Valid Name
     require(bytes(_name).length > 0);
-    // Required Valid Price
+    // Required Valid coins_wanted
     require(_coins_wanted > 0);
-    //Increment product count
+    //Increment organisation count
     orgsCount++;
-    //create a product
+    //create an organisation
     organisations[orgsCount] = Organisation(orgsCount, _name, _coins_wanted, msg.sender, false);
-    //Trigger the enter
+    //Trigger the event
     emit OrganisationCreated(orgsCount, _name, _coins_wanted, msg.sender, false);
   }
 
-  function giveDonation(uint _id) public payable{
+  function giveDonation(uint _id) public payable {
       Organisation memory _org = organisations[_id];
       address payable _addr_org = _org.addr_org;
       require(_org.id > 0 && _org.id <= orgsCount);
@@ -55,11 +55,11 @@ contract CharityChain {
       require(!_org.reqSatisfied);
       require(_addr_org != msg.sender);
       _org.addr_org = msg.sender;
-      // Mark as Purchase
+      // Mark as requirement Satisfied
       _org.reqSatisfied = true;
-      // Update the product
+      // Update the organisation
       organisations[_id] = _org;
-      // Pay the seller
+      // Pay the organisation
       address(_addr_org).transfer(msg.value);
       // Trigger the event
       emit OrganisationDonated(orgsCount, _org.name, _org.coins_wanted, msg.sender, true);

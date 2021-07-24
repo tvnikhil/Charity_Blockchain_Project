@@ -1,5 +1,5 @@
-import {ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
-import {Web3Service} from './service/web3.service';
+import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
+import { Web3Service } from './service/web3.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,11 @@ import {Web3Service} from './service/web3.service';
 export class AppComponent implements OnInit {
   title = 'AngularCharitydapp';
   accountNumber: any;
-  productName: any;
-  productPrice: any;
+  orgName: any;
+  orgcoinswanted: any;
   show = true;
   totalProduct = [];
-  private marketPlace: any;
+  private charitychain: any;
   balance: any;
   constructor(private web3: Web3Service, private cd: ChangeDetectorRef) {
 
@@ -32,12 +32,12 @@ export class AppComponent implements OnInit {
               this.web3.getContract()
                 .then((contractRes: any) => {
                   if (contractRes) {
-                    this.marketPlace = contractRes;
-                    this.marketPlace.methods.orgsCount()
+                    this.charitychain = contractRes;
+                    this.charitychain.methods.orgsCount()
                       .call()
                       .then(value => {
                         for (let i = 1; i <= value; i++) {
-                          const product = this.marketPlace.methods.organisations(i)
+                          const product = this.charitychain.methods.organisations(i)
                             .call()
                             .then(organisations => {
                               this.show = false;
@@ -62,12 +62,12 @@ export class AppComponent implements OnInit {
   }
 
 
-  private createProducts(name, price) {
+  private createProducts(name, coins_wanted) {
     this.show = true;
-    console.log(name, price);
-    const etherPrice = this.web3.convertPriceToEther(price);
-    this.marketPlace.methods.createOrganisation(name, etherPrice)
-      .send({from: this.accountNumber})
+    console.log(name, coins_wanted);
+    const etherPrice = this.web3.convertPriceToEther(coins_wanted);
+    this.charitychain.methods.createOrganisation(name, etherPrice)
+      .send({ from: this.accountNumber })
       .once('receipt', (receipt) => {
         this.totalProduct.push(receipt.events.ProductCreated.returnValues);
         this.show = false;
@@ -75,10 +75,10 @@ export class AppComponent implements OnInit {
   }
 
 
-  private purchaseProducts(id, price) {
+  private purchaseProducts(id, coins_wanted) {
     this.show = true;
-    this.marketPlace.methods.giveDonation(id)
-      .send({from: this.accountNumber, value: price})
+    this.charitychain.methods.giveDonation(id)
+      .send({ from: this.accountNumber, value: coins_wanted })
       .once('receipt', (receipt) => {
         console.log('receipt ', receipt);
         // this.totalProduct.push(receipt.events.ProductCreated.returnValues);
@@ -91,8 +91,8 @@ export class AppComponent implements OnInit {
 
   }
 
-  private convertEtherToPrice(price) {
-    return this.web3.convertEtherToPrice(price);
+  private convertEtherToPrice(coins_wanted) {
+    return this.web3.convertEtherToPrice(coins_wanted);
   }
 
 

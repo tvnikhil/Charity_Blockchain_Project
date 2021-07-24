@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-const marketPlaceArtifacts = require('../../../build/contracts/CharityChain.json');
+const charitychainartifacts = require('../../../build/contracts/CharityChain.json');
 
 declare var require;
 const Web3 = require('web3');
@@ -55,8 +55,8 @@ export class Web3Service {
       web3.eth.net.getId()
         .then((netId: any) => {
           networkId = netId;
-          const abi = marketPlaceArtifacts.abi;
-          const networkAddress = marketPlaceArtifacts.networks[networkId].address;
+          const abi = charitychainartifacts.abi;
+          const networkAddress = charitychainartifacts.networks[networkId].address;
           const marketplace = new web3.eth.Contract(abi, networkAddress);
           resolve(marketplace);
         });
